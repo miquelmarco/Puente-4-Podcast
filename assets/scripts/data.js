@@ -1,4 +1,4 @@
-let data = {
+let info = {
     chapters: [
 
         // primera season

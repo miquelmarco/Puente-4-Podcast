@@ -2,11 +2,11 @@ let { createApp } = Vue;
 createApp({
     data() {
         return {
-            chapters: [...data]
+            datapp: info.chapters
         }
     },
     created() {
-        console.log(this.chapters)
+        console.log(this.datapp)
     },
     methods: {
 

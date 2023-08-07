@@ -18,8 +18,8 @@
         </header>
         <main>
             <div>
-                <div v-for="chapter of chapters" class="card">
-                    {{chapter.duration}}
+                <div v-for="chapter of datapp">
+                    <p>{{chapter.name}}</p>
                 </div>
             </div>
         </main>
@@ -32,8 +32,8 @@
         crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <script type="module" src="./assets/scripts/data.js"></script>
-        <script type="module" src="./assets/scripts/index.js"></script>
+        <script src="./assets/scripts/data.js"></script>
+        <script src="./assets/scripts/index.js"></script>
     </body>
 
 </html>
