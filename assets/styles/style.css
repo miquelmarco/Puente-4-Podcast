@@ -1,10 +1,21 @@
 * {
     box-sizing: border-box;
-    border: red solid 1px;
+    /* border: red solid 1px; */
+    font-family: 'Orbitron', sans-serif;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; */
+}
+
+body {
+    background: rgb(9, 17, 149);
+    background: linear-gradient(0deg, rgba(9, 17, 149, 0.6671043417366946) 0%, rgba(58, 15, 110, 1) 28%, rgba(62, 15, 107, 1) 30%, rgba(128, 12, 56, 1) 67%, rgba(187, 10, 10, 0.8743872549019608) 100%);
 }
 
 header {
     min-height: 10vh;
+    background: rgb(149, 9, 56);
+    background: linear-gradient(0deg, rgba(149, 9, 56, 0.9136029411764706) 0%, rgba(15, 38, 110, 0.8547794117647058) 72%);
+    box-shadow: 5px -5px 10px #000000,
+        -5px 5px 10px #050505;
 }
 
 main {
@@ -13,4 +24,140 @@ main {
 
 footer {
     min-height: 10vh;
+    background: rgb(149, 9, 56);
+    background: linear-gradient(0deg, rgba(149, 9, 56, 0.9136029411764706) 0%, rgba(15, 38, 110, 0.8547794117647058) 72%);
+    box-shadow: 5px -5px 10px #000000,
+        -5px 5px 10px #050505;
+}
+
+/* .layout {
+    flex: 1;
+} */
+
+.episodeCard {
+    width: 18rem;
+    height: 29rem;
+    background-color: rgba(255, 255, 255, 0.842);
+    border-radius: 0.3rem;
+}
+
+.episodeCard:hover {
+    box-shadow: 5px 5px 20px rgba(9, 9, 175, 0.774);
+    transform: translate(-0.2rem, -0.2rem);
+    transition: 0.3s;
+}
+
+.card-img {
+    border-top-left-radius: 0.3rem;
+    border-top-right-radius: 0.3rem;
+}
+
+.cardImgHov:hover {
+    transform: scale(1.01);
+    transition: 0.1s;
+}
+
+.cardName {
+    color: red;
+    font-weight: 900;
+}
+
+.cardBtnIvoox,
+.cardBtnYt {
+    text-decoration: none;
+    color: white;
+    border-radius: 0.3rem;
+}
+
+.cardBtnIvoox:hover,
+.cardBtnYt:hover {
+    color: rgb(0, 0, 0);
+    background-color: white;
+    transition: 0.5s;
+}
+
+.cardBtnYt {
+    background-color: red;
+}
+
+.cardBtnIvoox {
+    background-color: rgb(201, 132, 5);
+}
+
+.checkbokContainer {
+    width: 20%;
+}
+
+.logoFooter {
+    height: 10rem;
+}
+
+.logoHeader {
+    height: 4.5rem;
+}
+
+.navbar {
+    background: rgb(149, 9, 56);
+    background: linear-gradient(0deg, rgba(149, 9, 56, 0.9136029411764706) 0%, rgba(15, 38, 110, 0.8547794117647058) 72%);
+}
+
+.navbar-toggler,
+.navbar-toggler-icon {
+    color: white !important;
+    background-color: white !important;
+}
+
+li > a {
+    background: rgb(149, 9, 56);
+    background: linear-gradient(0deg, rgba(149, 9, 56, 0.9136029411764706) 0%, rgba(15, 38, 110, 0.8547794117647058) 72%);
+    color: white !important;
+    font-size: 1.5rem !important;
+}
+
+li > a:hover {
+    color: red !important;
+}
+
+.footerRSLogos {
+    height: 4rem;
+}
+
+@media only screen and (max-width: 1550px) {
+    .formChecks {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .checkbokContainer {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .cardContainer {
+        min-height: 50vh !important;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .checkbokContainer {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    .formChecks {
+        margin: 0rem !important;
+        padding: 0rem !important;
+    }
+
+    .footerRSLogos {
+        height: 2.5rem;
+    }
 }

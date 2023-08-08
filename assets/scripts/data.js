@@ -18,7 +18,7 @@ let info = {
             id: `1x02`,
             season: 1,
             chapter: 2,
-            name: `Piratas, tu muerte y elon Musk`,
+            name: `Piratas, tu muerte y Elon Musk`,
             linkIvoox: `https://www.ivoox.com/1x02-cosas-como-piratas-tu-muerte-elon-audios-mp3_rf_60770749_1.html`,
             image: `https://i.ytimg.com/vi/lLdsVHjsQz0/hqdefault.jpg?sqp=-oaymwEcCNACELwBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB9glm31mlzCkeTteRxfXe64MHonw`,
             linkYt: `https://www.youtube.com/watch?v=lLdsVHjsQz0`,

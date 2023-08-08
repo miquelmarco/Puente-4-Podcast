@@ -7,6 +7,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/styles/style.css">
     <title>Document</title>
 </head>
@@ -14,26 +17,137 @@
 <body>
     <div id="app" class="layout">
         <header>
-
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <!-- <a class="navbar-brand" href="#">Barra de Navegación</a> -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-3">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">INICIO</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Acerca de Nosotros</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Integrantes</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item dropName" href="#">Líder de la Davidcracia</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item dropName" href="#">Sergio Monroy</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item dropName" href="#">Roberto Álvaro</a></li>
+                                    <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contacto</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <img class="logoHeader" src="./assets/images/P4_W.png" alt="logo">
+                </div>
+            </nav>
         </header>
-        <main>
-            <div>
-                <div v-for="chapter of datapp">
-                    <p>{{chapter.name}}</p>
+        <main class="d-flex flex-column align-items-center gap-4">
+
+            <!-- video -->
+
+            <video class="w-100" autoplay muted loop src="./assets/images/p4pVideo.mp4"></video>
+
+            <!-- formulario filtro checkbox -->
+
+            {{filtroChecks}}
+            <form class="d-flex" role="search">
+                <input v-model="searchInput" class="form-control me-2" type="search" placeholder="Busca un programa"
+                    aria-label="Search">
+            </form>
+            <div class="d-flex w-75">
+                <form class="formChecks d-flex w-100 justify-content-between p-3 m-2">
+                    <div class="checkbokContainer d-flex justify-content-evenly text-light fw-bold">
+                        <label for="temporada1">Temporada 1</label>
+                        <input v-model="temporada1" type="checkbox" name="temporada1" id="temporada1" :value="1">
+                    </div>
+                    <div class="checkbokContainer d-flex justify-content-evenly text-light fw-bold">
+                        <label for="temporada2">Temporada 2</label>
+                        <input v-model="temporada2" type="checkbox" name="temporada2" id="temporada2" :value="2">
+                    </div>
+                    <div class="checkbokContainer d-flex justify-content-evenly text-light fw-bold">
+                        <label for="temporada3">Temporada 3</label>
+                        <input v-model="temporada3" type="checkbox" name="temporada3" id="temporada3" :value="3">
+                    </div>
+                    <div class="checkbokContainer d-flex justify-content-evenly text-light fw-bold">
+                        <label for="temporada4">Temporada 4</label>
+                        <input v-model="temporada4" type="checkbox" name="temporada4" id="temporada4" :value="4">
+                    </div>
+                    <div class="checkbokContainer d-flex justify-content-evenly text-light fw-bold">
+                        <label for="archivo">Archivos del Puente 4</label>
+                        <input v-model="archivo" type="checkbox" name="archivo" id="archivo" :value="archivo">
+                    </div>
+                </form>
+            </div>
+
+            <!-- cards episodios -->
+
+            <div class="cardContainer d-flex justify-content-center flex-wrap col-10 gap-3 min-vh-100">
+                <div class="episodeCard d-flex flex-column justify-content-between" v-for="chapter of paginatedData">
+                    <a target="_blank" :href="chapter.linkYt">
+                        <img class="card-img cardImgHov" :src="chapter.image" alt="episodeCover">
+                    </a>
+                    <p class="cardName text-center p-2">{{chapter.name}}</p>
+                    <div>
+                        <div class="text-center">
+                            <p>Temporada: {{chapter.season}} Episodio: {{chapter.chapter}}</p>
+                            <p>Duración: {{chapter.duration}} Hrs</p>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center align-items-center mb-2 mx-2 gap-1">
+                            <a class="text-center cardBtnYt p-1" target="_blank" :href="chapter.linkYt">Ver en
+                                Youtube</a>
+                            <a class="text-center cardBtnIvoox p-1" target="_blank" :href="chapter.linkIvoox">Escuchar
+                                en Ivoox</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </main>
-        <footer>
+            <div class="d-flex gap-3">
+                <button @click="currentPage--" :disabled="currentPage === 1">Anterior</button>
+                <button @click="currentPage++"
+                    :disabled="currentPage === Math.ceil(datapp.length / itemsPerPage)">Siguiente</button>
+            </div>
 
+        </main>
+        <footer class="mt-5 d-flex justify-content-between align-items-center">
+            <div class="d-flex flex-column m-2 gap-2">
+                <a class="text-decoration-none text-white" href="mailto:puente4podcast@gmail.com">Contáctanos a través de puente4podcast@gmail.com</a>
+                <a class="text-decoration-none text-white" target="_blank" href="https://www.youtube.com/@Puente4Podcast">Síguenos en Youtube</a>
+                <a class="text-decoration-none text-white" target="_blank" href="https://github.com/miquelmarco">Page Designed by Marco Miquel ®</a>
+            </div>
+            <div class="d-flex w-50 justify-content-around">
+                <a target="_blank" href="https://www.youtube.com/@Puente4Podcast"><img class="footerRSLogos" src="./assets/images/youtubelogo.png" alt="youtube"></a>
+                <a target="_blank" href="https://www.patreon.com/puente4podcast/posts"><img class="footerRSLogos" src="./assets/images/patreonlogo.png" alt="patreon"></a>
+                <a target="_blank" href="https://twitter.com/Puente4Podcast"><img class="footerRSLogos" src="./assets/images/Twitter-Logo-500x281.png" alt=""></a>
+                <a target="_blank" href="https://www.instagram.com/puente4podcast/"><img class="footerRSLogos" src="./assets/images/instagramlogo.png" alt="instagram"></a>
+            </div>
+            <img class="logoFooter m-3" src="./assets/images/P4_W.png" alt="logo">
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-        <script src="./assets/scripts/data.js"></script>
-        <script src="./assets/scripts/index.js"></script>
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/scripts/data.js"></script>
+    <script src="./assets/scripts/index.js"></script>
+</body>
 
 </html>
